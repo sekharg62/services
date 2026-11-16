@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+@theme {
+  /* Typography: clean geometric sans for headings + readable sans for body */
+  --font-sans: var(--font-manrope), var(--font-hind-siliguri), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-outfit), var(--font-anek-bangla), ui-sans-serif, system-ui, sans-serif;
+
+  /* Ink: rich blacks (never pure #000 - softer, more expensive feel) */
+  --color-ink-50: #f5f5f4;
+  --color-ink-100: #e7e5e4;
+  --color-ink-300: #b8b5b0;
+  --color-ink-400: #8c8882;
+  --color-ink-600: #3d3a36;
+  --color-ink-700: #2a2825;
+  --color-ink-800: #1a1917;
+  --color-ink-900: #121110;
+  --color-ink-950: #0a0a09;
+
+  /* Gold: metallic, slightly warm */
+  --color-gold-100: #f7efd6;
+  --color-gold-200: #eedca5;
+  --color-gold-300: #e3c676;
+  --color-gold-400: #d4af37;
+  --color-gold-500: #c19a2e;
+  --color-gold-600: #a07c22;
+  --color-gold-700: #7d601c;
+
+  --animate-fade-in: fade-in 0.6s ease both;
+  --animate-marquee: marquee 40s linear infinite;
+
+  @keyframes fade-in {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: none; }
+  }
+  @keyframes marquee {
+    to { transform: translateX(-50%); }
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+section[id] {
+  scroll-margin-top: 5rem;
+}
+
+/* Lock page scroll while a modal <dialog> is open */
+html:has(dialog[open]) {
+  overflow: hidden;
+}
+
+/* Bengali: lead with Bengali faces */
+html:lang(bn) {
+  --font-sans: var(--font-hind-siliguri), var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-anek-bangla), var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
+}
+
+body {
+  @apply bg-ink-950 text-ink-100 antialiased;
+}
+
+/* Letter-spacing breaks Bengali conjuncts (যুক্তাক্ষর) - keep it normal for Bengali text */
+html:lang(bn) [class*="tracking-"] {
+  letter-spacing: normal;
+}
+
+h1, h2, h3 {
+  @apply font-display;
+  letter-spacing: -0.02em;
+}
+
+html:lang(bn) :is(h1, h2, h3) {
+  letter-spacing: normal;
+}
+
+::selection {
+  @apply bg-gold-400 text-ink-950;
+}
+
+@utility text-gold-gradient {
+  background-image: linear-gradient(100deg, #b8892a 0%, #f3d98b 45%, #d4af37 60%, #a07c22 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility bg-gold-gradient {
+  background-image: linear-gradient(100deg, #b8892a 0%, #e9c768 50%, #c19a2e 100%);
+}

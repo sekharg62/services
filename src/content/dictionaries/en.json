@@ -1,0 +1,338 @@
+{
+  "meta": {
+    "title": "DigitalAccess Services — Web, App & Business Development",
+    "description": "We design and build websites, mobile apps and digital growth strategies for businesses."
+  },
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "work": "Work",
+    "estimate": "Estimate",
+    "process": "Process",
+    "faq": "FAQ",
+    "contact": "Contact"
+  },
+  "hero": {
+    "eyebrow": "Web · App · Business",
+    "title": "Build your digital business with us",
+    "subtitle": "Websites, mobile apps and business development — designed, built and grown by one team.",
+    "cta": "Get in touch",
+    "secondary": "View our work",
+    "stats": [
+      {
+        "value": 120,
+        "suffix": "+",
+        "label": "Projects delivered"
+      },
+      {
+        "value": 8,
+        "suffix": "+",
+        "label": "Years of experience"
+      },
+      {
+        "value": 98,
+        "suffix": "%",
+        "label": "Client satisfaction"
+      }
+    ]
+  },
+  "tech": {
+    "heading": "Technologies we work with"
+  },
+  "services": {
+    "eyebrow": "Services",
+    "heading": "What we do",
+    "intro": "Three disciplines, one team. Pick a service to see what's included.",
+    "learnMore": "Discuss this service",
+    "items": [
+      {
+        "title": "Web Development",
+        "description": "Fast, SEO-friendly websites and web apps built to convert visitors into customers.",
+        "features": [
+          "Custom design & branding",
+          "Next.js & React builds",
+          "SEO & performance tuning",
+          "CMS & e-commerce"
+        ]
+      },
+      {
+        "title": "App Development",
+        "description": "Android and iOS apps your customers will love, from first prototype to store launch.",
+        "features": [
+          "iOS & Android apps",
+          "UI/UX & prototyping",
+          "API & backend integration",
+          "Store publishing & support"
+        ]
+      },
+      {
+        "title": "Business Development",
+        "description": "Strategy, branding and marketing that grow your reach and your revenue.",
+        "features": [
+          "Digital strategy",
+          "Brand identity",
+          "Social & search marketing",
+          "Analytics & reporting"
+        ]
+      }
+    ]
+  },
+  "about": {
+    "eyebrow": "Why us",
+    "heading": "A partner, not just a vendor",
+    "body": "We work closely with every client, from first idea to long after launch. You get senior designers, developers and strategists on one team — and a single point of contact who knows your business.",
+    "points": [
+      "Transparent pricing and clear timelines",
+      "Bilingual team — English and বাংলা",
+      "Support and maintenance after launch"
+    ],
+    "imageAlt": "Our team collaborating around a table"
+  },
+  "process": {
+    "eyebrow": "Process",
+    "heading": "How we work",
+    "steps": [
+      {
+        "title": "Discover",
+        "description": "We learn your goals, your customers and your market."
+      },
+      {
+        "title": "Design",
+        "description": "Wireframes and visual designs you can see and approve."
+      },
+      {
+        "title": "Develop",
+        "description": "Clean, tested code with regular progress updates."
+      },
+      {
+        "title": "Launch & grow",
+        "description": "Go live, measure results and keep improving."
+      }
+    ]
+  },
+  "portfolio": {
+    "eyebrow": "Selected work",
+    "heading": "Recent projects",
+    "filters": {
+      "all": "All",
+      "web": "Web",
+      "app": "App",
+      "business": "Business"
+    },
+    "items": [
+      {
+        "title": "Corporate website",
+        "category": "web",
+        "summary": "A fast, modern website for a growing company, built to turn visitors into enquiries.",
+        "deliverables": [
+          "Custom design system",
+          "Bilingual pages",
+          "SEO & speed optimisation"
+        ],
+        "tech": [
+          "Next.js",
+          "Tailwind CSS",
+          "Vercel"
+        ]
+      },
+      {
+        "title": "Analytics dashboard",
+        "category": "web",
+        "summary": "A live dashboard that turns raw sales data into clear charts the whole team can read.",
+        "deliverables": [
+          "Real-time charts",
+          "Role-based access",
+          "PDF & Excel export"
+        ],
+        "tech": [
+          "React",
+          "Node.js",
+          "PostgreSQL"
+        ]
+      },
+      {
+        "title": "Shopping app",
+        "category": "app",
+        "summary": "A shopping app with secure payments, order tracking and push notifications.",
+        "deliverables": [
+          "Android & iOS apps",
+          "bKash & card payments",
+          "Order tracking"
+        ],
+        "tech": [
+          "React Native",
+          "Node.js",
+          "Firebase"
+        ]
+      },
+      {
+        "title": "Fintech app UX",
+        "category": "app",
+        "summary": "A clean, trustworthy mobile banking experience designed and tested with real users.",
+        "deliverables": [
+          "User research",
+          "Interactive prototype",
+          "Design handoff"
+        ],
+        "tech": [
+          "Figma",
+          "React Native"
+        ]
+      },
+      {
+        "title": "Brand launch",
+        "category": "business",
+        "summary": "A complete brand identity and launch campaign for a new consumer brand.",
+        "deliverables": [
+          "Logo & brand guide",
+          "Launch campaign",
+          "Social media kit"
+        ],
+        "tech": [
+          "Figma",
+          "Meta Ads",
+          "Google Analytics"
+        ]
+      },
+      {
+        "title": "Growth workshop",
+        "category": "business",
+        "summary": "A hands-on workshop that gave a sales team a clear 12-month digital growth plan.",
+        "deliverables": [
+          "Market research",
+          "Growth roadmap",
+          "KPI dashboard"
+        ],
+        "tech": [
+          "Google Analytics",
+          "Looker Studio"
+        ]
+      }
+    ],
+    "open": "View project",
+    "close": "Close",
+    "deliverablesLabel": "What we delivered",
+    "techLabel": "Built with",
+    "cta": "Start a similar project"
+  },
+  "testimonials": {
+    "eyebrow": "Testimonials",
+    "heading": "What clients say",
+    "prev": "Previous testimonial",
+    "next": "Next testimonial",
+    "items": [
+      {
+        "quote": "They rebuilt our website in weeks and our enquiries doubled. Professional from start to finish.",
+        "name": "Ayesha Rahman",
+        "role": "Founder, retail brand"
+      },
+      {
+        "quote": "Our app launched on time and on budget. The team explained every decision clearly.",
+        "name": "Nusrat Jahan",
+        "role": "Product lead, fintech startup"
+      },
+      {
+        "quote": "Their marketing strategy gave us a clear plan for growth. Highly recommended.",
+        "name": "Tanvir Ahmed",
+        "role": "Director, logistics company"
+      }
+    ]
+  },
+  "faq": {
+    "eyebrow": "FAQ",
+    "heading": "Common questions",
+    "items": [
+      {
+        "q": "How long does a website take?",
+        "a": "A typical business website takes 2–4 weeks. Larger web apps and e-commerce sites take longer — we'll give you a clear timeline before we start."
+      },
+      {
+        "q": "How much does a project cost?",
+        "a": "It depends on scope. After a short call we send a fixed quote with no hidden costs."
+      },
+      {
+        "q": "Do you build both Android and iOS apps?",
+        "a": "Yes. We build for both platforms and handle publishing to Google Play and the App Store."
+      },
+      {
+        "q": "Will I be able to update my website myself?",
+        "a": "Yes. We can add an easy content management system and show you how to use it."
+      },
+      {
+        "q": "Do you offer support after launch?",
+        "a": "Yes. We offer maintenance plans covering updates, backups, security and small changes."
+      }
+    ]
+  },
+  "contact": {
+    "eyebrow": "Contact",
+    "heading": "Let's build something great",
+    "subtitle": "Tell us about your project and we'll get back to you within one business day.",
+    "imageAlt": "A team working on laptops",
+    "form": {
+      "name": "Your name",
+      "email": "Email",
+      "phone": "Phone (optional)",
+      "service": "Service",
+      "servicePlaceholder": "Choose a service",
+      "message": "Tell us about your project",
+      "submit": "Send message",
+      "success": "Thank you! Your email app has opened with your message — just press send.",
+      "errors": {
+        "required": "This field is required",
+        "email": "Enter a valid email address"
+      }
+    }
+  },
+  "footer": {
+    "tagline": "Web, app and business development.",
+    "rights": "All rights reserved."
+  },
+  "estimator": {
+    "eyebrow": "Estimate",
+    "heading": "Estimate your project",
+    "intro": "Answer three quick questions to see a price range and timeline. We confirm the final price after a free consultation.",
+    "steps": {
+      "type": "What do you need?",
+      "size": "How big is it?",
+      "features": "Extra features"
+    },
+    "types": {
+      "web": {
+        "label": "Website",
+        "unit": "pages"
+      },
+      "app": {
+        "label": "Mobile app",
+        "unit": "screens"
+      },
+      "business": {
+        "label": "Business growth",
+        "unit": "months"
+      }
+    },
+    "addons": {
+      "ecommerce": "Online shop & payments",
+      "accounts": "User login & accounts",
+      "bilingual": "Bangla + English",
+      "cms": "Edit content yourself (CMS)",
+      "seo": "SEO setup",
+      "bothPlatforms": "Both Android & iOS",
+      "push": "Push notifications",
+      "admin": "Admin dashboard",
+      "branding": "Brand identity kit",
+      "social": "Social media management",
+      "ads": "Paid ads management"
+    },
+    "result": {
+      "price": "Estimated cost",
+      "timeline": "Estimated timeline",
+      "weeks": "weeks",
+      "months": "months",
+      "note": "This is an estimate, not a final quote.",
+      "cta": "Send this estimate",
+      "message": "Hi! I'd like a quote for a {type} ({size} {unit}). Features: {features}. The estimator showed {price}, about {time}.",
+      "none": "none"
+    }
+  }
+}
