@@ -1,10 +1,8 @@
 "use client";
 
-import Image from "next/image";
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 import { useEffect, useState } from "react";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { media } from "@/content/media";
 import type { Dictionary } from "@/lib/dictionaries";
 
 export function Testimonials({ dict }: { dict: Dictionary["testimonials"] }) {
@@ -35,12 +33,10 @@ export function Testimonials({ dict }: { dict: Dictionary["testimonials"] }) {
         <Quote className="mx-auto size-10 text-gold-400/60" aria-hidden />
         <figure key={index} className="animate-fade-in" aria-live="polite">
           <blockquote className="mt-6 font-display text-xl leading-relaxed font-light text-ink-50 sm:text-2xl">“{t.quote}”</blockquote>
-          <figcaption className="mt-8 flex items-center justify-center gap-4">
-            <Image src={media.avatars[index]} alt="" width={56} height={56} className="rounded-full ring-2 ring-gold-400/60" />
-            <div className="text-left">
-              <p className="font-semibold text-gold-200">{t.name}</p>
-              <p className="text-sm text-ink-400">{t.role}</p>
-            </div>
+          <figcaption className="mt-8">
+            <span aria-hidden className="mx-auto mb-4 block h-px w-12 bg-gold-gradient" />
+            <p className="font-semibold text-gold-200">{t.name}</p>
+            <p className="mt-1 text-sm text-ink-400">{t.role}</p>
           </figcaption>
         </figure>
 

@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import { Anek_Bangla, Hind_Siliguri, Manrope, Outfit } from "next/font/google";
+import { Anek_Bangla, Hind_Siliguri, Josefin_Sans, Manrope, Outfit } from "next/font/google";
 import { notFound } from "next/navigation";
 import { Dock } from "@/components/Dock";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { getDictionary } from "@/lib/dictionaries";
 import { hasLocale, locales } from "@/lib/i18n";
 import { siteConfig } from "@/lib/site";
@@ -11,6 +12,7 @@ import "../globals.css";
 
 const manrope = Manrope({ subsets: ["latin"], variable: "--font-manrope", display: "swap" });
 const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit", display: "swap" });
+const josefinSans = Josefin_Sans({ subsets: ["latin"], weight: "700", variable: "--font-josefin", display: "swap" });
 const anekBangla = Anek_Bangla({ subsets: ["bengali"], variable: "--font-anek-bangla", display: "swap" });
 const hindSiliguri = Hind_Siliguri({
   subsets: ["bengali", "latin"],
@@ -34,7 +36,6 @@ export async function generateMetadata({ params }: LayoutProps<"/[lang]">): Prom
     metadataBase: new URL(siteConfig.url),
     title: { default: dict.meta.title, template: `%s | ${siteConfig.name}` },
     description: dict.meta.description,
-    icons: { icon: "/Blue.png" },
     alternates: {
       canonical: `/${lang}`,
       languages: Object.fromEntries(locales.map((l) => [l, `/${l}`])),
@@ -45,7 +46,7 @@ export async function generateMetadata({ params }: LayoutProps<"/[lang]">): Prom
       title: dict.meta.title,
       description: dict.meta.description,
       locale: lang === "bn" ? "bn_BD" : "en_US",
-      images: ["/Blue.png"],
+      images: [{ url: "/og-image.png", width: 1200, height: 630, alt: siteConfig.name }],
     },
   };
 }
@@ -56,12 +57,13 @@ export default async function RootLayout({ children, params }: LayoutProps<"/[la
   const dict = await getDictionary(lang);
 
   return (
-    <html lang={lang} style={{ colorScheme: "dark" }} className={`${manrope.variable} ${outfit.variable} ${anekBangla.variable} ${hindSiliguri.variable}`}>
+    <html lang={lang} style={{ colorScheme: "dark" }} className={`${manrope.variable} ${outfit.variable} ${josefinSans.variable} ${anekBangla.variable} ${hindSiliguri.variable}`}>
       <body className="flex min-h-dvh flex-col font-sans">
         <Header lang={lang} />
         <main className="flex-1">{children}</main>
         <Footer dict={dict} />
         <Dock labels={dict.nav} />
+        <WhatsAppButton label={dict.whatsapp.label} greeting={dict.whatsapp.greeting} />
       </body>
     </html>
   );

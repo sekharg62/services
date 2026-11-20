@@ -1,12 +1,13 @@
 import { notFound } from "next/navigation";
 import { About } from "@/components/sections/About";
 import { Contact } from "@/components/sections/Contact";
-import { Estimator } from "@/components/sections/Estimator";
 import { Faq } from "@/components/sections/Faq";
 import { Hero } from "@/components/sections/Hero";
 import { Portfolio } from "@/components/sections/Portfolio";
+import { Pricing } from "@/components/sections/Pricing";
 import { Process } from "@/components/sections/Process";
 import { ServicesTabs } from "@/components/sections/ServicesTabs";
+import { Team } from "@/components/sections/Team";
 import { TechMarquee } from "@/components/sections/TechMarquee";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { getDictionary } from "@/lib/dictionaries";
@@ -23,12 +24,13 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
       <TechMarquee heading={dict.tech.heading} />
       <ServicesTabs dict={dict.services} />
       <About dict={dict.about} />
+      <Team dict={dict.team} lang={lang} />
       <Process dict={dict.process} />
       <Portfolio dict={dict.portfolio} />
-      <Estimator dict={dict.estimator} lang={lang} />
+      <Pricing dict={dict.pricing} lang={lang} whatsapp={dict.whatsapp} />
       <Testimonials dict={dict.testimonials} />
       <Faq dict={dict.faq} />
-      <Contact dict={dict.contact} services={dict.services.items.map((s) => s.title)} />
+      <Contact dict={dict.contact} services={dict.services.items.map((s) => s.title)} whatsapp={dict.whatsapp} />
     </>
   );
 }

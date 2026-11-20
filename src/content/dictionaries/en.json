@@ -7,7 +7,7 @@
     "home": "Home",
     "services": "Services",
     "work": "Work",
-    "estimate": "Estimate",
+    "pricing": "Pricing",
     "process": "Process",
     "faq": "FAQ",
     "contact": "Contact"
@@ -57,9 +57,9 @@
       },
       {
         "title": "App Development",
-        "description": "Android and iOS apps your customers will love, from first prototype to store launch.",
+        "description": "Android apps your customers will love, from first prototype to Google Play launch.",
         "features": [
-          "iOS & Android apps",
+          "Android app development",
           "UI/UX & prototyping",
           "API & backend integration",
           "Store publishing & support"
@@ -155,7 +155,7 @@
         "category": "app",
         "summary": "A shopping app with secure payments, order tracking and push notifications.",
         "deliverables": [
-          "Android & iOS apps",
+          "Android app",
           "bKash & card payments",
           "Order tracking"
         ],
@@ -248,11 +248,11 @@
       },
       {
         "q": "How much does a project cost?",
-        "a": "It depends on scope. After a short call we send a fixed quote with no hidden costs."
+        "a": "See our fixed-price packages above. If you need something custom, we send a fixed quote after a short call — no hidden costs."
       },
       {
-        "q": "Do you build both Android and iOS apps?",
-        "a": "Yes. We build for both platforms and handle publishing to Google Play and the App Store."
+        "q": "Which platforms do you build apps for?",
+        "a": "We build Android apps and handle publishing to Google Play for you."
       },
       {
         "q": "Will I be able to update my website myself?",
@@ -288,51 +288,151 @@
     "tagline": "Web, app and business development.",
     "rights": "All rights reserved."
   },
-  "estimator": {
-    "eyebrow": "Estimate",
-    "heading": "Estimate your project",
-    "intro": "Answer three quick questions to see a price range and timeline. We confirm the final price after a free consultation.",
-    "steps": {
-      "type": "What do you need?",
-      "size": "How big is it?",
-      "features": "Extra features"
-    },
-    "types": {
+  "whatsapp": {
+    "label": "Chat on WhatsApp",
+    "greeting": "Hi DigitalAccess! I'd like to discuss a project.",
+    "contactPrompt": "Prefer to chat? Message us on WhatsApp — we usually reply within minutes.",
+    "ask": "Ask on WhatsApp"
+  },
+  "pricing": {
+    "eyebrow": "Pricing",
+    "heading": "Simple, fixed-price packages",
+    "intro": "No surprises. Pick a package, or talk to us for a custom quote.",
+    "popular": "Most popular",
+    "cta": "Get started",
+    "perMonth": "/month",
+    "delivery": "Delivery",
+    "custom": "Need something different? We'll send you a custom quote.",
+    "customCta": "Ask for a custom quote",
+    "message": "Hi! I'm interested in the {plan} {category} package ({price}).",
+    "categories": {
       "web": {
         "label": "Website",
-        "unit": "pages"
+        "plans": [
+          {
+            "name": "Starter",
+            "description": "A professional website to get your business online.",
+            "delivery": "2 weeks",
+            "features": [
+              "Up to 5 pages",
+              "Mobile-friendly design",
+              "Contact form & WhatsApp button",
+              "Basic SEO setup",
+              "1 month free support"
+            ]
+          },
+          {
+            "name": "Business",
+            "description": "A complete site you can update yourself.",
+            "delivery": "4 weeks",
+            "features": [
+              "Up to 12 pages",
+              "Custom design",
+              "Edit content yourself (CMS)",
+              "Bangla + English",
+              "Full SEO setup",
+              "3 months free support"
+            ]
+          },
+          {
+            "name": "Premium",
+            "description": "An online shop ready to take orders and payments.",
+            "delivery": "6 weeks",
+            "features": [
+              "Everything in Business",
+              "Online shop & product catalogue",
+              "bKash, Nagad & card payments",
+              "Customer accounts",
+              "Order management",
+              "6 months free support"
+            ]
+          }
+        ]
       },
       "app": {
-        "label": "Mobile app",
-        "unit": "screens"
+        "label": "Android app",
+        "plans": [
+          {
+            "name": "Starter",
+            "description": "A simple, polished app for your customers.",
+            "delivery": "6 weeks",
+            "features": [
+              "Up to 8 screens",
+              "Custom UI design",
+              "Google Play publishing",
+              "1 month free support"
+            ]
+          },
+          {
+            "name": "Business",
+            "description": "A connected app with accounts and notifications.",
+            "delivery": "9 weeks",
+            "features": [
+              "Up to 15 screens",
+              "User login & accounts",
+              "Push notifications",
+              "Backend & API",
+              "3 months free support"
+            ]
+          },
+          {
+            "name": "Premium",
+            "description": "A full product with payments and an admin panel.",
+            "delivery": "12 weeks",
+            "features": [
+              "Up to 25 screens",
+              "Everything in Business",
+              "In-app payments",
+              "Admin dashboard",
+              "Analytics",
+              "6 months free support"
+            ]
+          }
+        ]
       },
       "business": {
         "label": "Business growth",
-        "unit": "months"
+        "plans": [
+          {
+            "name": "Starter",
+            "description": "A steady social media presence.",
+            "delivery": "Monthly",
+            "features": [
+              "12 social media posts",
+              "1 platform managed",
+              "Monthly report"
+            ]
+          },
+          {
+            "name": "Business",
+            "description": "Social media plus paid ads that bring customers.",
+            "delivery": "Monthly",
+            "features": [
+              "20 social media posts",
+              "2 platforms managed",
+              "Facebook & Instagram ads management",
+              "Bi-weekly report"
+            ]
+          },
+          {
+            "name": "Premium",
+            "description": "A full growth team for your brand.",
+            "delivery": "Monthly",
+            "features": [
+              "Everything in Business",
+              "Google Ads management",
+              "SEO for your website",
+              "Brand identity kit",
+              "Weekly report & strategy call"
+            ]
+          }
+        ]
       }
-    },
-    "addons": {
-      "ecommerce": "Online shop & payments",
-      "accounts": "User login & accounts",
-      "bilingual": "Bangla + English",
-      "cms": "Edit content yourself (CMS)",
-      "seo": "SEO setup",
-      "bothPlatforms": "Both Android & iOS",
-      "push": "Push notifications",
-      "admin": "Admin dashboard",
-      "branding": "Brand identity kit",
-      "social": "Social media management",
-      "ads": "Paid ads management"
-    },
-    "result": {
-      "price": "Estimated cost",
-      "timeline": "Estimated timeline",
-      "weeks": "weeks",
-      "months": "months",
-      "note": "This is an estimate, not a final quote.",
-      "cta": "Send this estimate",
-      "message": "Hi! I'd like a quote for a {type} ({size} {unit}). Features: {features}. The estimator showed {price}, about {time}.",
-      "none": "none"
     }
+  },
+  "team": {
+    "eyebrow": "Our team",
+    "heading": "The people behind your project",
+    "intro": "A focused two-person team — you work directly with the people who architect, build and manage your product."
   }
 }

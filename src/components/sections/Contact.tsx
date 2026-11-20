@@ -2,32 +2,33 @@
 
 import Image from "next/image";
 import { CheckCircle2, Send } from "lucide-react";
+import { SiWhatsapp } from "react-icons/si";
 import { useEffect, useRef, useState, type FormEvent } from "react";
-import { ESTIMATE_EVENT, type EstimateDetail } from "@/components/sections/Estimator";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { CONTACT_PREFILL_EVENT, type ContactPrefill } from "@/lib/contactPrefill";
 import { media } from "@/content/media";
 import type { Dictionary } from "@/lib/dictionaries";
-import { siteConfig } from "@/lib/site";
+import { siteConfig, whatsappLink } from "@/lib/site";
 
 type Field = "name" | "email" | "service" | "message";
 
-export function Contact({ dict, services }: { dict: Dictionary["contact"]; services: string[] }) {
+export function Contact({ dict, services, whatsapp }: { dict: Dictionary["contact"]; services: string[]; whatsapp: Dictionary["whatsapp"] }) {
   const f = dict.form;
   const [errors, setErrors] = useState<Partial<Record<Field, string>>>({});
   const [sent, setSent] = useState(false);
   const serviceRef = useRef<HTMLSelectElement>(null);
   const messageRef = useRef<HTMLTextAreaElement>(null);
-  const [prefill, setPrefill] = useState<EstimateDetail | null>(null);
+  const [prefill, setPrefill] = useState<ContactPrefill | null>(null);
 
-  // The estimator sends its summary here: pre-fill the service + message fields.
+  // Pricing packages send their summary here: pre-fill the service + message fields.
   useEffect(() => {
-    const onEstimate = (e: Event) => {
+    const onPrefill = (e: Event) => {
       setSent(false);
       setErrors({});
-      setPrefill((e as CustomEvent<EstimateDetail>).detail);
+      setPrefill((e as CustomEvent<ContactPrefill>).detail);
     };
-    window.addEventListener(ESTIMATE_EVENT, onEstimate);
-    return () => window.removeEventListener(ESTIMATE_EVENT, onEstimate);
+    window.addEventListener(CONTACT_PREFILL_EVENT, onPrefill);
+    return () => window.removeEventListener(CONTACT_PREFILL_EVENT, onPrefill);
   }, []);
 
   useEffect(() => {
@@ -71,11 +72,21 @@ export function Contact({ dict, services }: { dict: Dictionary["contact"]; servi
   return (
     <section id="contact" className="mx-auto max-w-6xl px-4 py-24">
       <div className="grid overflow-hidden rounded-3xl border border-gold-400/20 bg-ink-900 lg:grid-cols-[1fr_1.2fr]">
-        <div className="relative min-h-72">
+        <div className="relative min-h-[26rem]">
           <Image src={media.contactOffice} alt={dict.imageAlt} fill placeholder="blur" sizes="(min-width: 1024px) 30rem, 100vw" className="object-cover" />
           <div className="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/60 to-ink-950/20" />
           <div className="absolute inset-x-0 bottom-0 p-8 sm:p-10">
             <SectionHeading eyebrow={dict.eyebrow} title={dict.heading} intro={dict.subtitle} align="left" />
+            <p className="mt-6 text-sm text-ink-300">{whatsapp.contactPrompt}</p>
+            <a
+              href={whatsappLink(whatsapp.greeting)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-3 inline-flex items-center gap-2 rounded-full bg-[#25d366] px-5 py-2.5 text-sm font-semibold text-ink-950 shadow-lg shadow-black/40 transition hover:brightness-110"
+            >
+              <SiWhatsapp className="size-4" aria-hidden />
+              {whatsapp.label}
+            </a>
           </div>
         </div>
 

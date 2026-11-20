@@ -4,6 +4,8 @@
   /* Typography: clean geometric sans for headings + readable sans for body */
   --font-sans: var(--font-manrope), var(--font-hind-siliguri), ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-outfit), var(--font-anek-bangla), ui-sans-serif, system-ui, sans-serif;
+  /* Brand wordmark only (DIGITAL ACCESS) */
+  --font-brand: var(--font-josefin), var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
 
   /* Ink: rich blacks (never pure #000 - softer, more expensive feel) */
   --color-ink-50: #f5f5f4;
@@ -63,6 +65,19 @@ body {
 /* Letter-spacing breaks Bengali conjuncts (যুক্তাক্ষর) - keep it normal for Bengali text */
 html:lang(bn) [class*="tracking-"] {
   letter-spacing: normal;
+}
+
+/* Brand wordmark: Josefin Sans draws its capitals ~0.17em high in the line box,
+   so shift the words down to centre them on the logo. (A transform moves the paint too,
+   so nothing gets clipped — unlike text-box trimming, which cut off the gold gradient.) */
+.brand-word > span {
+  transform: translateY(0.17em);
+}
+/* Gradient text is only painted inside the element's box: pad it so round letters (C, S)
+   and the last letter are never clipped, and cancel the padding with negative margins. */
+.brand-word .text-gold-gradient {
+  padding: 0.12em 0.1em;
+  margin: -0.12em -0.1em;
 }
 
 h1, h2, h3 {
