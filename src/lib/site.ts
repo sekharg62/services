@@ -5,7 +5,7 @@ export const siteConfig = {
   /** Inbox the contact form sends enquiries to (opens the visitor's email app). Fill this in. */
   contactEmail: "",
   /** WhatsApp number in international format, digits only (country code + number, no "+" or spaces). */
-  whatsappNumber: "916296446556",
+  whatsappNumber:  "916296446556",
 } as const;
 
 /** Link that opens a WhatsApp chat with us, optionally with a pre-typed message. */
