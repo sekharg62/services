@@ -7,7 +7,6 @@ Built with **Next.js 16** (App Router), **React 19**, **TypeScript** and **Tailw
 
 ```bash
 npm install
-cp .env.example .env.local   # then fill in the values
 npm run dev                  # http://localhost:3002
 ```
 
@@ -19,12 +18,9 @@ npm run dev                  # http://localhost:3002
 | `npm run lint` | ESLint |
 | `npm run typecheck` | Generate route types and run `tsc` |
 
-## Environment variables
+## Site settings
 
-| Name | Purpose |
-|---|---|
-| `NEXT_PUBLIC_SITE_URL` | Public URL (canonical links, sitemap, Open Graph). No trailing slash. |
-| `NEXT_PUBLIC_CONTACT_EMAIL` | Inbox the contact form opens a pre-filled email to. |
+No environment variables are needed. The site URL, contact email and WhatsApp number live in `src/lib/site.ts` (`siteConfig`).
 
 ## Project structure
 

@@ -1,8 +1,9 @@
 export const siteConfig = {
   name: "DigitalAccess Services",
-  url: (process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3002").replace(/\/$/, ""),
-  /** Where the contact form sends enquiries (opens the visitor's email app). */
-  contactEmail: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "",
+  /** Public URL of the live site — used for canonical links, hreflang, sitemap and Open Graph. No trailing slash. */
+  url: "https://services.digitalaccessda.com",
+  /** Inbox the contact form sends enquiries to (opens the visitor's email app). Fill this in. */
+  contactEmail: "",
   /** WhatsApp number in international format, digits only (country code + number, no "+" or spaces). */
   whatsappNumber: "916296446556",
 } as const;
