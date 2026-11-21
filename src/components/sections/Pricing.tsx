@@ -33,7 +33,7 @@ export function Pricing({ dict, lang, whatsapp }: { dict: Dictionary["pricing"];
     <section id="pricing" className="mx-auto max-w-6xl px-4 py-24">
       <SectionHeading eyebrow={dict.eyebrow} title={dict.heading} intro={dict.intro} />
 
-      <div role="tablist" aria-label={dict.heading} className="mx-auto mt-10 flex w-fit flex-wrap justify-center gap-1 rounded-full border border-gold-400/20 bg-ink-900 p-1">
+      <div role="tablist" aria-label={dict.heading} className="mx-auto mt-10 grid w-full max-w-md grid-cols-3 gap-1 rounded-2xl border border-gold-400/20 bg-ink-900 p-1 sm:flex sm:w-fit sm:max-w-none sm:rounded-full">
         {categories.map(({ id, icon: Icon }) => {
           const on = id === category;
           return (
@@ -43,12 +43,12 @@ export function Pricing({ dict, lang, whatsapp }: { dict: Dictionary["pricing"];
               aria-selected={on}
               aria-controls="pricing-plans"
               onClick={() => setCategory(id)}
-              className={`flex items-center gap-2 rounded-full px-5 py-2.5 text-sm transition ${
+              className={`flex min-w-0 flex-col items-center justify-center gap-1.5 rounded-xl px-1.5 py-2.5 text-center text-xs leading-tight transition sm:flex-row sm:gap-2 sm:rounded-full sm:px-5 sm:text-sm ${
                 on ? "bg-gold-gradient font-semibold text-ink-950" : "text-ink-300 hover:text-gold-200"
               }`}
             >
-              <Icon className="size-4" aria-hidden />
-              {dict.categories[id].label}
+              <Icon className="size-4 shrink-0" aria-hidden />
+              <span className="sm:whitespace-nowrap">{dict.categories[id].label}</span>
             </button>
           );
         })}

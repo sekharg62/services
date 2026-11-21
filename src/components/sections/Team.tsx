@@ -27,11 +27,11 @@ export function Team({ dict, lang }: { dict: Dictionary["team"]; lang: Locale })
           return (
             <li key={member.name.en}>
               <Reveal delay={i * 120} className="h-full">
-                <article className="group relative h-full overflow-hidden rounded-3xl border border-gold-400/15 bg-ink-900 p-8 transition duration-300 hover:-translate-y-1 hover:border-gold-400/50 hover:shadow-2xl hover:shadow-gold-500/10">
+                <article className="group relative h-full overflow-hidden rounded-3xl border border-gold-400/15 bg-ink-900 p-6 transition sm:p-8 duration-300 hover:-translate-y-1 hover:border-gold-400/50 hover:shadow-2xl hover:shadow-gold-500/10">
                   <div aria-hidden className="pointer-events-none absolute -top-20 -right-20 size-56 rounded-full bg-gold-400/5 blur-3xl transition duration-500 group-hover:bg-gold-400/15" />
 
-                  <div className="relative flex items-center gap-5">
-                    <div className="relative size-24 shrink-0 rounded-full bg-gold-gradient p-[2px]">
+                  <div className="relative flex flex-col items-start gap-4 min-[400px]:flex-row min-[400px]:items-center min-[400px]:gap-5">
+                    <div className="relative size-20 shrink-0 rounded-full sm:size-24 bg-gold-gradient p-[2px]">
                       <div className="relative flex size-full items-center justify-center overflow-hidden rounded-full bg-ink-950">
                         {member.photo ? (
                           <Image src={member.photo} alt={name} fill sizes="6rem" placeholder="blur" className="object-cover transition duration-500 group-hover:scale-110" />
@@ -41,7 +41,7 @@ export function Team({ dict, lang }: { dict: Dictionary["team"]; lang: Locale })
                       </div>
                     </div>
                     <div className="min-w-0">
-                      <h3 className="text-2xl font-semibold text-ink-50">{name}</h3>
+                      <h3 className="text-xl font-semibold break-words text-ink-50 sm:text-2xl">{name}</h3>
                       <p className="mt-1.5 text-xs leading-relaxed font-semibold tracking-[0.18em] text-gold-400 uppercase">{member.role[lang]}</p>
                     </div>
                   </div>

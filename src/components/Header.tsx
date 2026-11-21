@@ -11,7 +11,9 @@ export function Header({ lang }: { lang: Locale }) {
       <div className="mx-auto flex h-18 max-w-6xl items-center justify-between gap-4 px-4">
         <Link href={`/${lang}`} className="flex items-center gap-3">
           <Image src="/logo.png" alt={siteConfig.name} width={40} height={40} priority />
-          <BrandName className="hidden sm:inline-flex" />
+          <span className="hidden sm:block">
+            <BrandName />
+          </span>
         </Link>
         <LanguageSwitcher current={lang} />
       </div>
