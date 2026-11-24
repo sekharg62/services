@@ -40,9 +40,9 @@ export function TechMarquee({ heading }: { heading: string }) {
               key={i}
               aria-hidden={i >= tech.length}
               style={{ "--brand": color } as React.CSSProperties}
-              className="group/item flex items-center gap-3 rounded-full border border-gold-400/15 bg-ink-950/60 py-2.5 pr-5 pl-3 whitespace-nowrap transition hover:border-[var(--brand)]/50"
+              className="group/item flex items-center gap-3 rounded-md border border-gold-400/15 bg-ink-950/60 py-2.5 pr-5 pl-3 whitespace-nowrap transition hover:border-[var(--brand)]/50"
             >
-              <span className="flex size-9 items-center justify-center rounded-full bg-ink-800 text-gold-300 transition group-hover/item:text-[var(--brand)]">
+              <span className="flex size-9 items-center justify-center rounded-sm bg-ink-800 text-gold-300 transition group-hover/item:text-[var(--brand)]">
                 <Icon className="size-5" aria-hidden />
               </span>
               <span className="text-sm font-medium text-ink-300 transition group-hover/item:text-ink-50">{name}</span>

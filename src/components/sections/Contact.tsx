@@ -61,7 +61,7 @@ export function Contact({ dict, services, whatsapp }: { dict: Dictionary["contac
   }
 
   const input =
-    "w-full rounded-xl border border-gold-400/20 bg-ink-950 px-4 py-3 text-ink-50 placeholder:text-ink-400 transition outline-none focus:border-gold-400 focus:ring-2 focus:ring-gold-400/20";
+    "w-full rounded-md border border-gold-400/20 bg-ink-950 px-4 py-3 text-ink-50 placeholder:text-ink-400 transition outline-none focus:border-gold-400 focus:ring-2 focus:ring-gold-400/20";
   const err = (k: Field) =>
     errors[k] && (
       <p id={`${k}-error`} className="mt-1.5 text-xs text-red-400">
@@ -71,7 +71,7 @@ export function Contact({ dict, services, whatsapp }: { dict: Dictionary["contac
 
   return (
     <section id="contact" className="mx-auto max-w-6xl px-4 py-24">
-      <div className="grid overflow-hidden rounded-3xl border border-gold-400/20 bg-ink-900 lg:grid-cols-[1fr_1.2fr]">
+      <div className="grid overflow-hidden rounded-lg border border-gold-400/20 bg-ink-900 lg:grid-cols-[1fr_1.2fr]">
         <div className="relative min-h-[26rem]">
           <Image src={media.contactOffice} alt={dict.imageAlt} fill placeholder="blur" sizes="(min-width: 1024px) 30rem, 100vw" className="object-cover" />
           <div className="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/60 to-ink-950/20" />
@@ -82,7 +82,7 @@ export function Contact({ dict, services, whatsapp }: { dict: Dictionary["contac
               href={whatsappLink(whatsapp.greeting)}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-3 inline-flex items-center gap-2 rounded-full bg-[#25d366] px-5 py-2.5 text-sm font-semibold text-ink-950 shadow-lg shadow-black/40 transition hover:brightness-110"
+              className="mt-3 inline-flex items-center gap-2 rounded-md bg-[#25d366] px-5 py-2.5 text-sm font-semibold text-ink-950 shadow-lg shadow-black/40 transition hover:brightness-110"
             >
               <SiWhatsapp className="size-4" aria-hidden />
               {whatsapp.label}
@@ -129,7 +129,7 @@ export function Contact({ dict, services, whatsapp }: { dict: Dictionary["contac
               </div>
               <button
                 type="submit"
-                className="bg-gold-gradient group inline-flex items-center justify-center gap-2 rounded-full px-8 py-3.5 text-sm font-semibold tracking-[0.15em] text-ink-950 uppercase shadow-lg shadow-gold-500/20 transition hover:brightness-110 sm:col-span-2 sm:justify-self-start"
+                className="bg-gold-gradient group inline-flex items-center justify-center gap-2 rounded-md px-8 py-3.5 text-sm font-semibold tracking-[0.15em] text-ink-950 uppercase shadow-lg shadow-gold-500/20 transition hover:brightness-110 sm:col-span-2 sm:justify-self-start"
               >
                 {f.submit}
                 <Send className="size-4 transition group-hover:translate-x-1" aria-hidden />

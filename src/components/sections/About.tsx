@@ -10,8 +10,8 @@ export function About({ dict }: { dict: Dictionary["about"] }) {
     <section className="bg-ink-900/60 py-24">
       <div className="mx-auto grid max-w-6xl items-center gap-14 px-4 lg:grid-cols-2">
         <Reveal className="relative">
-          <div aria-hidden className="absolute -top-4 -left-4 h-2/3 w-2/3 rounded-3xl border border-gold-400/25" />
-          <div className="relative aspect-[6/7] overflow-hidden rounded-3xl">
+          <div aria-hidden className="absolute -top-4 -left-4 h-2/3 w-2/3 rounded-lg border border-gold-400/25" />
+          <div className="relative aspect-[6/7] overflow-hidden rounded-lg">
             <Image
               src={media.aboutTeam}
               alt={dict.imageAlt}

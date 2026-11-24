@@ -23,7 +23,7 @@ export function Testimonials({ dict }: { dict: Dictionary["testimonials"] }) {
     <section className="mx-auto max-w-4xl px-4 py-24">
       <SectionHeading eyebrow={dict.eyebrow} title={dict.heading} />
       <div
-        className="relative mt-14 rounded-3xl border border-gold-400/20 bg-ink-900 px-6 py-12 text-center sm:px-16"
+        className="relative mt-14 rounded-lg border border-gold-400/20 bg-ink-900 px-6 py-12 text-center sm:px-16"
         onMouseEnter={() => setPaused(true)}
         onMouseLeave={() => setPaused(false)}
         onFocus={() => setPaused(true)}
@@ -41,7 +41,7 @@ export function Testimonials({ dict }: { dict: Dictionary["testimonials"] }) {
         </figure>
 
         <div className="mt-10 flex items-center justify-center gap-4">
-          <button onClick={() => go(-1)} aria-label={dict.prev} className="rounded-full border border-gold-400/30 p-2 text-gold-300 transition hover:bg-gold-400 hover:text-ink-950">
+          <button onClick={() => go(-1)} aria-label={dict.prev} className="rounded-md border border-gold-400/30 p-2 text-gold-300 transition hover:bg-gold-400 hover:text-ink-950">
             <ChevronLeft className="size-5" />
           </button>
           <div className="flex gap-2">
@@ -55,7 +55,7 @@ export function Testimonials({ dict }: { dict: Dictionary["testimonials"] }) {
               />
             ))}
           </div>
-          <button onClick={() => go(1)} aria-label={dict.next} className="rounded-full border border-gold-400/30 p-2 text-gold-300 transition hover:bg-gold-400 hover:text-ink-950">
+          <button onClick={() => go(1)} aria-label={dict.next} className="rounded-md border border-gold-400/30 p-2 text-gold-300 transition hover:bg-gold-400 hover:text-ink-950">
             <ChevronRight className="size-5" />
           </button>
         </div>

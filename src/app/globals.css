@@ -39,6 +39,17 @@
   }
 }
 
+/* iOS-style frosted glass: translucent tint, heavy blur + saturation boost,
+   soft top highlight (add a hairline `border-white/10` where used) (like iPhone control centre / nav bars). */
+@utility glass {
+  background-color: rgb(18 17 16 / 0.45);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  backdrop-filter: blur(24px) saturate(180%);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.08),
+    0 8px 32px rgb(0 0 0 / 0.35);
+}
+
 html {
   scroll-behavior: smooth;
 }

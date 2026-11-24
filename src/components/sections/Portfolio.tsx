@@ -1,11 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import { ArrowUpRight, Check, X } from "lucide-react";
+import { ArrowUpRight, Check, ExternalLink, X } from "lucide-react";
 import { useRef, useState, type PointerEvent } from "react";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { media } from "@/content/media";
+import { projects } from "@/content/projects";
 import type { Dictionary } from "@/lib/dictionaries";
+import type { Locale } from "@/lib/i18n";
 
 type Filter = keyof Dictionary["portfolio"]["filters"];
 
@@ -41,7 +42,7 @@ function TiltCard({ children, onClick, label }: { children: React.ReactNode; onC
       onClick={onClick}
       onPointerMove={onMove}
       onPointerLeave={onLeave}
-      className="group relative block aspect-[4/3] w-full overflow-hidden rounded-2xl border border-gold-400/15 text-left transition-transform duration-300 ease-out [transform:perspective(900px)_rotateX(var(--rx,0deg))_rotateY(var(--ry,0deg))] [transform-style:preserve-3d] hover:border-gold-400/50 hover:shadow-2xl hover:shadow-gold-500/10 focus-visible:outline-2 focus-visible:outline-gold-400"
+      className="group relative block aspect-[4/3] w-full overflow-hidden rounded-lg border border-gold-400/15 text-left transition-transform duration-300 ease-out [transform:perspective(900px)_rotateX(var(--rx,0deg))_rotateY(var(--ry,0deg))] [transform-style:preserve-3d] hover:border-gold-400/50 hover:shadow-2xl hover:shadow-gold-500/10 focus-visible:outline-2 focus-visible:outline-gold-400"
     >
       {children}
       <span
@@ -52,13 +53,15 @@ function TiltCard({ children, onClick, label }: { children: React.ReactNode; onC
   );
 }
 
-export function Portfolio({ dict }: { dict: Dictionary["portfolio"] }) {
+export function Portfolio({ dict, lang }: { dict: Dictionary["portfolio"]; lang: Locale }) {
   const [filter, setFilter] = useState<Filter>("all");
   const [selected, setSelected] = useState<number | null>(null);
   const dialog = useRef<HTMLDialogElement>(null);
-  const filters = Object.keys(dict.filters) as Filter[];
-  const items = dict.items
-    .map((item, index) => ({ ...item, index, image: media.portfolio[index] }))
+  // Only show filter buttons that have at least one project (and none at all when there is just one category).
+  const used = (Object.keys(dict.filters) as Filter[]).filter((f) => f !== "all" && projects.some((p) => p.category === f));
+  const filters: Filter[] = used.length > 1 ? ["all", ...used] : [];
+  const items = projects
+    .map((item, index) => ({ ...item, index }))
     .filter((item) => filter === "all" || item.category === filter);
 
   const open = (index: number) => {
@@ -66,29 +69,31 @@ export function Portfolio({ dict }: { dict: Dictionary["portfolio"] }) {
     dialog.current?.showModal();
   };
   const close = () => dialog.current?.close();
-  const project = selected === null ? null : dict.items[selected];
+  const project = selected === null ? null : projects[selected];
 
   return (
     <section id="work" className="bg-ink-900/60 py-24">
       <div className="mx-auto max-w-6xl px-4">
         <SectionHeading eyebrow={dict.eyebrow} title={dict.heading} />
 
-        <div className="mt-10 flex flex-wrap justify-center gap-2">
-          {filters.map((f) => (
-            <button
-              key={f}
-              onClick={() => setFilter(f)}
-              aria-pressed={filter === f}
-              className={`rounded-full px-5 py-2 text-sm transition ${
-                filter === f
-                  ? "bg-gold-gradient font-semibold text-ink-950"
-                  : "border border-gold-400/25 text-ink-300 hover:border-gold-400/60 hover:text-gold-200"
-              }`}
-            >
-              {dict.filters[f]}
-            </button>
-          ))}
-        </div>
+        {filters.length > 0 && (
+          <div className="mt-10 flex flex-wrap justify-center gap-2">
+            {filters.map((f) => (
+              <button
+                key={f}
+                onClick={() => setFilter(f)}
+                aria-pressed={filter === f}
+                className={`rounded-md px-5 py-2 text-sm transition ${
+                  filter === f
+                    ? "bg-gold-gradient font-semibold text-ink-950"
+                    : "border border-gold-400/25 text-ink-300 hover:border-gold-400/60 hover:text-gold-200"
+                }`}
+              >
+                {dict.filters[f]}
+              </button>
+            ))}
+          </div>
+        )}
 
         <ul key={filter} className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {items.map((item, i) => (
@@ -100,17 +105,17 @@ export function Portfolio({ dict }: { dict: Dictionary["portfolio"] }) {
                   fill
                   placeholder="blur"
                   sizes="(min-width: 1024px) 22rem, (min-width: 640px) 45vw, 90vw"
-                  className="object-cover transition duration-700 group-hover:scale-110"
+                  className="object-cover object-top transition duration-700 group-hover:scale-110"
                 />
                 <span className="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/60 to-transparent opacity-90" />
                 <span className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-6 [transform:translateZ(40px)]">
                   <span>
-                    <span className="inline-block rounded-full bg-ink-950/80 px-2.5 py-1 text-[0.65rem] font-semibold tracking-[0.25em] text-gold-300 uppercase">
+                    <span className="inline-block rounded-sm bg-ink-950/80 px-2.5 py-1 text-[0.65rem] font-semibold tracking-[0.25em] text-gold-300 uppercase">
                       {dict.filters[item.category as Filter]}
                     </span>
                     <span className="mt-2 block font-display text-xl font-semibold text-ink-50">{item.title}</span>
                   </span>
-                  <span className="flex size-10 shrink-0 translate-y-2 items-center justify-center rounded-full bg-gold-400 text-ink-950 opacity-0 transition duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+                  <span className="flex size-10 shrink-0 translate-y-2 items-center justify-center rounded-md bg-gold-400 text-ink-950 opacity-0 transition duration-300 group-hover:translate-y-0 group-hover:opacity-100">
                     <ArrowUpRight className="size-5" aria-hidden />
                   </span>
                 </span>
@@ -124,32 +129,32 @@ export function Portfolio({ dict }: { dict: Dictionary["portfolio"] }) {
         ref={dialog}
         onClick={(e) => e.target === dialog.current && close()}
         aria-labelledby="project-title"
-        className="m-auto max-h-[90svh] w-[min(64rem,calc(100%-2rem))] overflow-y-auto rounded-3xl border border-gold-400/25 bg-ink-900 p-0 text-ink-100 shadow-2xl backdrop:bg-black/80 backdrop:backdrop-blur-sm open:animate-fade-in"
+        className="m-auto max-h-[90svh] w-[min(64rem,calc(100%-2rem))] overflow-y-auto rounded-lg border border-gold-400/25 bg-ink-900 p-0 text-ink-100 shadow-2xl backdrop:bg-black/80 backdrop:backdrop-blur-sm open:animate-fade-in"
       >
-        {project && selected !== null && (
+        {project && (
           <div className="grid lg:grid-cols-[1.1fr_1fr]">
             <div className="relative aspect-[4/3] lg:aspect-auto lg:min-h-[32rem]">
-              <Image src={media.portfolio[selected]} alt={project.title} fill placeholder="blur" sizes="(min-width: 1024px) 34rem, 100vw" className="object-cover" />
+              <Image src={project.image} alt={project.title} fill placeholder="blur" sizes="(min-width: 1024px) 34rem, 100vw" className="object-cover object-top" />
               <div className="absolute inset-0 bg-gradient-to-t from-ink-900 via-transparent lg:bg-gradient-to-r lg:from-transparent lg:via-transparent lg:to-ink-900" />
             </div>
             <div className="relative p-6 sm:p-10">
               <button
                 onClick={close}
                 aria-label={dict.close}
-                className="absolute top-4 right-4 rounded-full border border-gold-400/30 p-2 text-gold-300 transition hover:bg-gold-400 hover:text-ink-950"
+                className="absolute top-4 right-4 rounded-md border border-gold-400/30 p-2 text-gold-300 transition hover:bg-gold-400 hover:text-ink-950"
               >
                 <X className="size-5" />
               </button>
               <p className="text-xs font-semibold tracking-[0.25em] text-gold-400 uppercase">{dict.filters[project.category as Filter]}</p>
               <h3 id="project-title" className="mt-3 pr-10 text-3xl font-semibold text-ink-50">{project.title}</h3>
-              <p className="mt-4 leading-relaxed text-ink-300">{project.summary}</p>
+              <p className="mt-4 leading-relaxed text-ink-300">{project.summary[lang]}</p>
 
               <h4 className="mt-8 text-xs font-semibold tracking-[0.2em] text-gold-300 uppercase">{dict.deliverablesLabel}</h4>
               <ul className="mt-3 space-y-2">
                 {project.deliverables.map((d) => (
-                  <li key={d} className="flex items-center gap-2 text-ink-100">
+                  <li key={d.en} className="flex items-center gap-2 text-ink-100">
                     <Check className="size-4 shrink-0 text-gold-400" aria-hidden />
-                    {d}
+                    {d[lang]}
                   </li>
                 ))}
               </ul>
@@ -157,18 +162,29 @@ export function Portfolio({ dict }: { dict: Dictionary["portfolio"] }) {
               <h4 className="mt-8 text-xs font-semibold tracking-[0.2em] text-gold-300 uppercase">{dict.techLabel}</h4>
               <ul className="mt-3 flex flex-wrap gap-2">
                 {project.tech.map((t) => (
-                  <li key={t} className="rounded-full border border-gold-400/25 px-3 py-1 text-sm text-ink-300">{t}</li>
+                  <li key={t} className="rounded-sm border border-gold-400/25 px-3 py-1 text-sm text-ink-300">{t}</li>
                 ))}
               </ul>
 
-              <a
-                href="#contact"
-                onClick={close}
-                className="bg-gold-gradient mt-10 inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold tracking-[0.15em] text-ink-950 uppercase transition hover:brightness-110"
-              >
-                {dict.cta}
-                <ArrowUpRight className="size-4" aria-hidden />
-              </a>
+              <div className="mt-10 flex flex-wrap gap-3">
+                <a
+                  href={project.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-gold-gradient inline-flex items-center gap-2 rounded-md px-6 py-3 text-sm font-semibold tracking-[0.15em] text-ink-950 uppercase transition hover:brightness-110"
+                >
+                  {dict.visit}
+                  <ExternalLink className="size-4" aria-hidden />
+                </a>
+                <a
+                  href="#contact"
+                  onClick={close}
+                  className="inline-flex items-center gap-2 rounded-md border border-gold-400/40 px-6 py-3 text-sm font-semibold tracking-[0.15em] text-gold-200 uppercase transition hover:bg-gold-400 hover:text-ink-950"
+                >
+                  {dict.cta}
+                  <ArrowUpRight className="size-4" aria-hidden />
+                </a>
+              </div>
             </div>
           </div>
         )}

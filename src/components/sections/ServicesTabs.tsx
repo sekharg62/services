@@ -29,14 +29,14 @@ export function ServicesTabs({ dict }: { dict: Dictionary["services"] }) {
               aria-selected={selected}
               aria-controls="service-panel"
               onClick={() => setActive(i)}
-              className={`flex items-center gap-3 rounded-2xl border px-5 py-4 text-left transition ${
+              className={`flex items-center gap-3 rounded-lg border px-5 py-4 text-left transition ${
                 selected
                   ? "border-gold-400/70 bg-gold-400/10 text-gold-200"
                   : "border-gold-400/15 text-ink-300 hover:border-gold-400/40 hover:text-ink-50"
               }`}
             >
               <span
-                className={`inline-flex size-10 shrink-0 items-center justify-center rounded-full border transition ${
+                className={`inline-flex size-10 shrink-0 items-center justify-center rounded-md border transition ${
                   selected ? "border-transparent bg-gold-400 text-ink-950" : "border-gold-400/40 text-gold-300"
                 }`}
               >
@@ -53,9 +53,9 @@ export function ServicesTabs({ dict }: { dict: Dictionary["services"] }) {
         id="service-panel"
         role="tabpanel"
         aria-labelledby={`service-tab-${active}`}
-        className="mt-8 grid animate-fade-in items-center gap-10 rounded-3xl border border-gold-400/15 bg-ink-900 p-6 sm:p-10 lg:grid-cols-2"
+        className="mt-8 grid animate-fade-in items-center gap-10 rounded-lg border border-gold-400/15 bg-ink-900 p-6 sm:p-10 lg:grid-cols-2"
       >
-        <div className="relative aspect-[3/2] overflow-hidden rounded-2xl">
+        <div className="relative aspect-[3/2] overflow-hidden rounded-md">
           <Image
             src={media.services[active]}
             alt={item.title}

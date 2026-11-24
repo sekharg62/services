@@ -18,7 +18,7 @@ export function Process({ dict }: { dict: Dictionary["process"] }) {
               />
             )}
             <Reveal delay={i * 120} className="h-full">
-              <div className="group h-full rounded-2xl border border-transparent p-6 text-center transition hover:border-gold-400/30 hover:bg-ink-900">
+              <div className="group h-full rounded-lg border border-transparent p-6 text-center transition hover:border-gold-400/30 hover:bg-ink-900">
                 <span className="relative mx-auto flex size-14 items-center justify-center rounded-full border border-gold-400/50 bg-ink-950 font-display text-lg font-medium text-gold-300 tabular-nums transition group-hover:bg-gold-400 group-hover:text-ink-950">
                   {String(i + 1).padStart(2, "0")}
                 </span>

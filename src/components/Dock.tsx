@@ -32,22 +32,22 @@ export function Dock({ labels }: { labels: Dictionary["nav"] }) {
 
   return (
     <nav aria-label="Sections" className="fixed inset-x-0 bottom-3 z-50 flex justify-center px-3 sm:bottom-5">
-      <ul className="flex items-end gap-1.5 rounded-2xl border border-gold-400/20 bg-ink-900/70 p-2 shadow-2xl shadow-black/60 backdrop-blur-xl sm:gap-2">
+      <ul className="flex items-end gap-1.5 glass rounded-lg border border-white/10 p-2 sm:gap-2">
         {items.map(({ id, icon: Icon, key }) => {
           const isActive = active === id;
           return (
             <li key={id} className="group relative flex flex-col items-center">
-              <span className="pointer-events-none absolute -top-10 translate-y-1 rounded-md border border-gold-400/20 bg-ink-950 px-2.5 py-1 text-xs whitespace-nowrap text-gold-200 opacity-0 transition duration-200 group-focus-within:translate-y-0 group-focus-within:opacity-100 group-hover:translate-y-0 group-hover:opacity-100 max-sm:hidden">
+              <span className="pointer-events-none absolute -top-10 translate-y-1 glass rounded-md border border-white/10 px-2.5 py-1 text-xs whitespace-nowrap text-gold-200 opacity-0 transition duration-200 group-focus-within:translate-y-0 group-focus-within:opacity-100 group-hover:translate-y-0 group-hover:opacity-100 max-sm:hidden">
                 {labels[key]}
               </span>
               <a
                 href={`#${id}`}
                 aria-label={labels[key]}
                 aria-current={isActive ? "true" : undefined}
-                className={`flex size-10 items-center justify-center rounded-xl border transition-colors duration-200 sm:size-11 ${
+                className={`flex size-10 items-center justify-center rounded-md border transition-colors duration-200 sm:size-11 ${
                   isActive
                     ? "border-gold-400/60 bg-gold-400/15 text-gold-300"
-                    : "border-white/5 bg-ink-800 text-ink-100 hover:border-gold-400/30 hover:text-gold-300"
+                    : "border-white/10 bg-white/5 text-ink-100 hover:border-gold-400/30 hover:bg-white/10 hover:text-gold-300"
                 }`}
               >
                 <Icon className="size-5" aria-hidden />

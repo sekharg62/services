@@ -33,7 +33,7 @@ export function Pricing({ dict, lang, whatsapp }: { dict: Dictionary["pricing"];
     <section id="pricing" className="mx-auto max-w-6xl px-4 py-24">
       <SectionHeading eyebrow={dict.eyebrow} title={dict.heading} intro={dict.intro} />
 
-      <div role="tablist" aria-label={dict.heading} className="mx-auto mt-10 grid w-full max-w-md grid-cols-3 gap-1 rounded-2xl border border-gold-400/20 bg-ink-900 p-1 sm:flex sm:w-fit sm:max-w-none sm:rounded-full">
+      <div role="tablist" aria-label={dict.heading} className="mx-auto mt-10 grid w-full max-w-md grid-cols-3 gap-1 rounded-lg border border-gold-400/20 bg-ink-900 p-1 sm:flex sm:w-fit sm:max-w-none sm:rounded-lg">
         {categories.map(({ id, icon: Icon }) => {
           const on = id === category;
           return (
@@ -43,7 +43,7 @@ export function Pricing({ dict, lang, whatsapp }: { dict: Dictionary["pricing"];
               aria-selected={on}
               aria-controls="pricing-plans"
               onClick={() => setCategory(id)}
-              className={`flex min-w-0 flex-col items-center justify-center gap-1.5 rounded-xl px-1.5 py-2.5 text-center text-xs leading-tight transition sm:flex-row sm:gap-2 sm:rounded-full sm:px-5 sm:text-sm ${
+              className={`flex min-w-0 flex-col items-center justify-center gap-1.5 rounded-md px-1.5 py-2.5 text-center text-xs leading-tight transition sm:flex-row sm:gap-2 sm:rounded-md sm:px-5 sm:text-sm ${
                 on ? "bg-gold-gradient font-semibold text-ink-950" : "text-ink-300 hover:text-gold-200"
               }`}
             >
@@ -61,14 +61,14 @@ export function Pricing({ dict, lang, whatsapp }: { dict: Dictionary["pricing"];
             <li
               key={plan.name}
               style={{ animationDelay: `${i * 90}ms` }}
-              className={`relative flex animate-fade-in flex-col rounded-3xl border p-8 transition duration-300 hover:-translate-y-1 ${
+              className={`relative flex animate-fade-in flex-col rounded-lg border p-8 transition duration-300 hover:-translate-y-1 ${
                 popular
                   ? "border-gold-400/70 bg-gradient-to-b from-ink-800 to-ink-900 shadow-2xl shadow-gold-500/10 lg:-my-3 lg:py-11"
                   : "border-gold-400/15 bg-ink-900 hover:border-gold-400/40"
               }`}
             >
               {popular && (
-                <span className="bg-gold-gradient absolute -top-3.5 left-1/2 -translate-x-1/2 rounded-full px-4 py-1 text-xs font-semibold tracking-wide whitespace-nowrap text-ink-950">
+                <span className="bg-gold-gradient absolute -top-3.5 left-1/2 -translate-x-1/2 rounded-sm px-4 py-1 text-xs font-semibold tracking-wide whitespace-nowrap text-ink-950">
                   {dict.popular}
                 </span>
               )}
@@ -97,7 +97,7 @@ export function Pricing({ dict, lang, whatsapp }: { dict: Dictionary["pricing"];
 
               <button
                 onClick={() => prefillContact({ serviceIndex: config.serviceIndex, message: messageFor(i) })}
-                className={`mt-8 w-full rounded-full px-6 py-3 text-sm font-semibold tracking-[0.15em] uppercase transition ${
+                className={`mt-8 w-full rounded-md px-6 py-3 text-sm font-semibold tracking-[0.15em] uppercase transition ${
                   popular
                     ? "bg-gold-gradient text-ink-950 shadow-lg shadow-gold-500/20 hover:brightness-110"
                     : "border border-gold-400/40 text-gold-200 hover:border-gold-300 hover:bg-gold-400/10"

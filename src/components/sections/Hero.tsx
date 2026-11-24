@@ -26,19 +26,19 @@ export function Hero({ dict }: { dict: Dictionary["hero"] }) {
         <div className="mt-10 flex animate-fade-in flex-wrap items-center justify-center gap-4 [animation-delay:300ms]">
           <a
             href="#contact"
-            className="bg-gold-gradient group inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-semibold tracking-[0.15em] text-ink-950 uppercase shadow-lg shadow-gold-500/20 transition hover:brightness-110"
+            className="bg-gold-gradient group inline-flex items-center gap-2 rounded-md px-7 py-3.5 text-sm font-semibold tracking-[0.15em] text-ink-950 uppercase shadow-lg shadow-gold-500/20 transition hover:brightness-110"
           >
             {dict.cta}
             <ArrowRight className="size-4 transition group-hover:translate-x-1" aria-hidden />
           </a>
           <a
             href="#work"
-            className="rounded-full border border-gold-400/40 bg-ink-950/40 px-7 py-3.5 text-sm font-semibold tracking-[0.15em] text-gold-200 uppercase backdrop-blur-sm transition hover:border-gold-300 hover:bg-gold-400/10"
+            className="rounded-md border border-gold-400/40 bg-ink-950/40 px-7 py-3.5 text-sm font-semibold tracking-[0.15em] text-gold-200 uppercase backdrop-blur-sm transition hover:border-gold-300 hover:bg-gold-400/10"
           >
             {dict.secondary}
           </a>
         </div>
-        <dl className="mx-auto mt-14 grid max-w-xl animate-fade-in grid-cols-3 gap-4 rounded-2xl border border-gold-400/15 bg-ink-950/50 p-5 backdrop-blur-md [animation-delay:400ms]">
+        <dl className="mx-auto mt-14 grid max-w-xl animate-fade-in grid-cols-3 gap-4 glass rounded-lg border border-white/10 p-5 [animation-delay:400ms]">
           {dict.stats.map((s) => (
             <div key={s.label}>
               <dt className="sr-only">{s.label}</dt>

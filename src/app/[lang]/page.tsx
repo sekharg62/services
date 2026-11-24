@@ -26,7 +26,7 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
       <About dict={dict.about} />
       <Team dict={dict.team} lang={lang} />
       <Process dict={dict.process} />
-      <Portfolio dict={dict.portfolio} />
+      <Portfolio dict={dict.portfolio} lang={lang} />
       <Pricing dict={dict.pricing} lang={lang} whatsapp={dict.whatsapp} />
       <Testimonials dict={dict.testimonials} />
       <Faq dict={dict.faq} />

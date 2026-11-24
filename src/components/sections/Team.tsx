@@ -27,7 +27,7 @@ export function Team({ dict, lang }: { dict: Dictionary["team"]; lang: Locale })
           return (
             <li key={member.name.en}>
               <Reveal delay={i * 120} className="h-full">
-                <article className="group relative h-full overflow-hidden rounded-3xl border border-gold-400/15 bg-ink-900 p-6 transition sm:p-8 duration-300 hover:-translate-y-1 hover:border-gold-400/50 hover:shadow-2xl hover:shadow-gold-500/10">
+                <article className="group relative h-full overflow-hidden rounded-lg border border-gold-400/15 bg-ink-900 p-6 transition sm:p-8 duration-300 hover:-translate-y-1 hover:border-gold-400/50 hover:shadow-2xl hover:shadow-gold-500/10">
                   <div aria-hidden className="pointer-events-none absolute -top-20 -right-20 size-56 rounded-full bg-gold-400/5 blur-3xl transition duration-500 group-hover:bg-gold-400/15" />
 
                   <div className="relative flex flex-col items-start gap-4 min-[400px]:flex-row min-[400px]:items-center min-[400px]:gap-5">
@@ -50,7 +50,7 @@ export function Team({ dict, lang }: { dict: Dictionary["team"]; lang: Locale })
 
                   <ul className="relative mt-6 flex flex-wrap gap-2">
                     {member.skills.map((skill) => (
-                      <li key={skill.en} className="rounded-full border border-gold-400/20 bg-ink-950/60 px-3 py-1 text-xs text-ink-300 transition group-hover:border-gold-400/35">
+                      <li key={skill.en} className="rounded-sm border border-gold-400/20 bg-ink-950/60 px-3 py-1 text-xs text-ink-300 transition group-hover:border-gold-400/35">
                         {skill[lang]}
                       </li>
                     ))}
@@ -65,7 +65,7 @@ export function Team({ dict, lang }: { dict: Dictionary["team"]; lang: Locale })
                           target={label === "Email" ? undefined : "_blank"}
                           rel="noopener noreferrer"
                           aria-label={`${name} – ${label}`}
-                          className="flex size-9 items-center justify-center rounded-full border border-gold-400/25 text-ink-300 transition hover:border-gold-400 hover:bg-gold-400 hover:text-ink-950"
+                          className="flex size-9 items-center justify-center rounded-md border border-gold-400/25 text-ink-300 transition hover:border-gold-400 hover:bg-gold-400 hover:text-ink-950"
                         >
                           <SIcon className="size-4" aria-hidden />
                         </a>
