@@ -30,10 +30,10 @@ export function Pricing({ dict, lang, whatsapp }: { dict: Dictionary["pricing"];
       .replace("{price}", money(config.prices[i]) + (config.monthly ? dict.perMonth : ""));
 
   return (
-    <section id="pricing" className="mx-auto max-w-6xl px-4 py-24">
+    <section id="pricing" className="mx-auto max-w-6xl px-4 py-28">
       <SectionHeading eyebrow={dict.eyebrow} title={dict.heading} intro={dict.intro} />
 
-      <div role="tablist" aria-label={dict.heading} className="mx-auto mt-10 grid w-full max-w-md grid-cols-3 gap-1 rounded-lg border border-gold-400/20 bg-ink-900 p-1 sm:flex sm:w-fit sm:max-w-none sm:rounded-lg">
+      <div role="tablist" aria-label={dict.heading} className="mx-auto mt-10 grid w-full max-w-md grid-cols-3 card gap-1 rounded-lg p-1 sm:flex sm:w-fit sm:max-w-none sm:rounded-lg">
         {categories.map(({ id, icon: Icon }) => {
           const on = id === category;
           return (
@@ -61,10 +61,8 @@ export function Pricing({ dict, lang, whatsapp }: { dict: Dictionary["pricing"];
             <li
               key={plan.name}
               style={{ animationDelay: `${i * 90}ms` }}
-              className={`relative flex animate-fade-in flex-col rounded-lg border p-8 transition duration-300 hover:-translate-y-1 ${
-                popular
-                  ? "border-gold-400/70 bg-gradient-to-b from-ink-800 to-ink-900 shadow-2xl shadow-gold-500/10 lg:-my-3 lg:py-11"
-                  : "border-gold-400/15 bg-ink-900 hover:border-gold-400/40"
+              className={`relative flex animate-fade-in flex-col rounded-lg p-8 transition duration-300 hover:-translate-y-1 ${
+                popular ? "border-gold shadow-2xl shadow-gold-500/10 lg:-my-3 lg:py-11" : "card hover:border-white/20"
               }`}
             >
               {popular && (
@@ -76,7 +74,7 @@ export function Pricing({ dict, lang, whatsapp }: { dict: Dictionary["pricing"];
               <p className="mt-2 min-h-12 text-sm leading-relaxed text-ink-400">{plan.description}</p>
 
               <p className="mt-6 flex items-baseline gap-1">
-                <span className={`font-display text-4xl font-semibold tabular-nums ${popular ? "text-gold-gradient" : "text-ink-50"}`}>
+                <span className={`font-display text-5xl font-semibold tracking-tight tabular-nums ${popular ? "text-gold-gradient" : "text-ink-50"}`}>
                   {money(config.prices[i])}
                 </span>
                 {config.monthly && <span className="text-sm text-ink-400">{dict.perMonth}</span>}
@@ -86,7 +84,7 @@ export function Pricing({ dict, lang, whatsapp }: { dict: Dictionary["pricing"];
                 {dict.delivery}: <span className="text-ink-300">{plan.delivery}</span>
               </p>
 
-              <ul className="mt-6 flex-1 space-y-3 border-t border-gold-400/15 pt-6">
+              <ul className="mt-6 flex-1 space-y-3 border-t border-white/10 pt-6">
                 {plan.features.map((f) => (
                   <li key={f} className="flex items-start gap-2.5 text-sm text-ink-100">
                     <Check className="mt-0.5 size-4 shrink-0 text-gold-400" aria-hidden />
@@ -100,7 +98,7 @@ export function Pricing({ dict, lang, whatsapp }: { dict: Dictionary["pricing"];
                 className={`mt-8 w-full rounded-md px-6 py-3 text-sm font-semibold tracking-[0.15em] uppercase transition ${
                   popular
                     ? "bg-gold-gradient text-ink-950 shadow-lg shadow-gold-500/20 hover:brightness-110"
-                    : "border border-gold-400/40 text-gold-200 hover:border-gold-300 hover:bg-gold-400/10"
+                    : "bg-white/5 text-gold-200 ring-1 ring-white/15 ring-inset hover:bg-white/10 hover:ring-gold-400/50"
                 }`}
               >
                 {dict.cta}

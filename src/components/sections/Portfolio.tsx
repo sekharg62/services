@@ -42,7 +42,7 @@ function TiltCard({ children, onClick, label }: { children: React.ReactNode; onC
       onClick={onClick}
       onPointerMove={onMove}
       onPointerLeave={onLeave}
-      className="group relative block aspect-[4/3] w-full overflow-hidden rounded-lg border border-gold-400/15 text-left transition-transform duration-300 ease-out [transform:perspective(900px)_rotateX(var(--rx,0deg))_rotateY(var(--ry,0deg))] [transform-style:preserve-3d] hover:border-gold-400/50 hover:shadow-2xl hover:shadow-gold-500/10 focus-visible:outline-2 focus-visible:outline-gold-400"
+      className="group relative block aspect-[4/3] w-full overflow-hidden rounded-lg text-left ring-1 ring-white/10 ring-inset transition-transform duration-300 ease-out [transform:perspective(900px)_rotateX(var(--rx,0deg))_rotateY(var(--ry,0deg))] [transform-style:preserve-3d] hover:shadow-2xl hover:shadow-black/60 hover:ring-gold-400/40 focus-visible:outline-2 focus-visible:outline-gold-400"
     >
       {children}
       <span
@@ -72,7 +72,8 @@ export function Portfolio({ dict, lang }: { dict: Dictionary["portfolio"]; lang:
   const project = selected === null ? null : projects[selected];
 
   return (
-    <section id="work" className="bg-ink-900/60 py-24">
+    <section id="work" className="relative py-28">
+      <div aria-hidden className="rule-gold absolute inset-x-0 top-0" />
       <div className="mx-auto max-w-6xl px-4">
         <SectionHeading eyebrow={dict.eyebrow} title={dict.heading} />
 
@@ -86,7 +87,7 @@ export function Portfolio({ dict, lang }: { dict: Dictionary["portfolio"]; lang:
                 className={`rounded-md px-5 py-2 text-sm transition ${
                   filter === f
                     ? "bg-gold-gradient font-semibold text-ink-950"
-                    : "border border-gold-400/25 text-ink-300 hover:border-gold-400/60 hover:text-gold-200"
+                    : "bg-white/5 text-ink-300 ring-1 ring-white/10 ring-inset hover:text-gold-200 hover:ring-gold-400/40"
                 }`}
               >
                 {dict.filters[f]}
@@ -105,17 +106,20 @@ export function Portfolio({ dict, lang }: { dict: Dictionary["portfolio"]; lang:
                   fill
                   placeholder="blur"
                   sizes="(min-width: 1024px) 22rem, (min-width: 640px) 45vw, 90vw"
-                  className="object-cover object-top transition duration-700 group-hover:scale-110"
+                  className="object-cover object-top transition duration-700 group-hover:scale-105"
                 />
-                <span className="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/60 to-transparent opacity-90" />
+                <span className="absolute inset-0 bg-gradient-to-t from-ink-950 from-20% via-ink-950/75 via-45% to-transparent" />
                 <span className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-6 [transform:translateZ(40px)]">
                   <span>
-                    <span className="inline-block rounded-sm bg-ink-950/80 px-2.5 py-1 text-[0.65rem] font-semibold tracking-[0.25em] text-gold-300 uppercase">
-                      {dict.filters[item.category as Filter]}
-                    </span>
-                    <span className="mt-2 block font-display text-xl font-semibold text-ink-50">{item.title}</span>
+                    {filters.length > 0 && (
+                      <span className="glass mb-2 inline-block rounded-sm px-2.5 py-1 text-[0.65rem] font-semibold tracking-[0.25em] text-gold-300 uppercase">
+                        {dict.filters[item.category as Filter]}
+                      </span>
+                    )}
+                    <span className="block font-display text-xl font-semibold text-ink-50">{item.title}</span>
+                    <span className="mt-0.5 block text-xs text-ink-400">{new URL(item.url).hostname.replace(/^www\./, "")}</span>
                   </span>
-                  <span className="flex size-10 shrink-0 translate-y-2 items-center justify-center rounded-md bg-gold-400 text-ink-950 opacity-0 transition duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+                  <span className="flex size-10 shrink-0 translate-y-2 items-center justify-center rounded-md bg-gold-gradient text-ink-950 opacity-0 transition duration-300 group-hover:translate-y-0 group-hover:opacity-100">
                     <ArrowUpRight className="size-5" aria-hidden />
                   </span>
                 </span>
@@ -129,7 +133,7 @@ export function Portfolio({ dict, lang }: { dict: Dictionary["portfolio"]; lang:
         ref={dialog}
         onClick={(e) => e.target === dialog.current && close()}
         aria-labelledby="project-title"
-        className="m-auto max-h-[90svh] w-[min(64rem,calc(100%-2rem))] overflow-y-auto rounded-lg border border-gold-400/25 bg-ink-900 p-0 text-ink-100 shadow-2xl backdrop:bg-black/80 backdrop:backdrop-blur-sm open:animate-fade-in"
+        className="m-auto max-h-[90svh] w-[min(64rem,calc(100%-2rem))] overflow-y-auto card rounded-lg p-0 text-ink-100 shadow-2xl backdrop:bg-black/80 backdrop:backdrop-blur-sm open:animate-fade-in"
       >
         {project && (
           <div className="grid lg:grid-cols-[1.1fr_1fr]">
@@ -141,13 +145,13 @@ export function Portfolio({ dict, lang }: { dict: Dictionary["portfolio"]; lang:
               <button
                 onClick={close}
                 aria-label={dict.close}
-                className="absolute top-4 right-4 rounded-md border border-gold-400/30 p-2 text-gold-300 transition hover:bg-gold-400 hover:text-ink-950"
+                className="glass absolute top-4 right-4 rounded-md p-2 text-gold-300 transition hover:bg-gold-400 hover:text-ink-950"
               >
                 <X className="size-5" />
               </button>
               <p className="text-xs font-semibold tracking-[0.25em] text-gold-400 uppercase">{dict.filters[project.category as Filter]}</p>
               <h3 id="project-title" className="mt-3 pr-10 text-3xl font-semibold text-ink-50">{project.title}</h3>
-              <p className="mt-4 leading-relaxed text-ink-300">{project.summary[lang]}</p>
+              <p className="mt-4 text-lg leading-relaxed text-ink-400">{project.summary[lang]}</p>
 
               <h4 className="mt-8 text-xs font-semibold tracking-[0.2em] text-gold-300 uppercase">{dict.deliverablesLabel}</h4>
               <ul className="mt-3 space-y-2">
@@ -162,7 +166,7 @@ export function Portfolio({ dict, lang }: { dict: Dictionary["portfolio"]; lang:
               <h4 className="mt-8 text-xs font-semibold tracking-[0.2em] text-gold-300 uppercase">{dict.techLabel}</h4>
               <ul className="mt-3 flex flex-wrap gap-2">
                 {project.tech.map((t) => (
-                  <li key={t} className="rounded-sm border border-gold-400/25 px-3 py-1 text-sm text-ink-300">{t}</li>
+                  <li key={t} className="rounded-sm bg-white/5 px-3 py-1 text-sm text-ink-300 ring-1 ring-white/10 ring-inset">{t}</li>
                 ))}
               </ul>
 

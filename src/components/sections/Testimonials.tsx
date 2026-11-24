@@ -1,6 +1,6 @@
 "use client";
 
-import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useEffect, useState } from "react";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import type { Dictionary } from "@/lib/dictionaries";
@@ -20,19 +20,19 @@ export function Testimonials({ dict }: { dict: Dictionary["testimonials"] }) {
   const t = dict.items[index];
 
   return (
-    <section className="mx-auto max-w-4xl px-4 py-24">
+    <section className="mx-auto max-w-4xl px-4 py-28">
       <SectionHeading eyebrow={dict.eyebrow} title={dict.heading} />
       <div
-        className="relative mt-14 rounded-lg border border-gold-400/20 bg-ink-900 px-6 py-12 text-center sm:px-16"
+        className="card relative mt-14 overflow-hidden rounded-lg px-6 pt-24 pb-12 text-center sm:px-16"
         onMouseEnter={() => setPaused(true)}
         onMouseLeave={() => setPaused(false)}
         onFocus={() => setPaused(true)}
         onBlur={() => setPaused(false)}
         aria-roledescription="carousel"
       >
-        <Quote className="mx-auto size-10 text-gold-400/60" aria-hidden />
+        <span aria-hidden className="text-gold-gradient pointer-events-none absolute -top-2 left-1/2 -translate-x-1/2 font-display text-[9rem] leading-none opacity-25 select-none">&ldquo;</span>
         <figure key={index} className="animate-fade-in" aria-live="polite">
-          <blockquote className="mt-6 font-display text-xl leading-relaxed font-light text-ink-50 sm:text-2xl">“{t.quote}”</blockquote>
+          <blockquote className="relative font-display text-xl leading-relaxed font-light text-balance text-ink-50 sm:text-3xl sm:leading-snug">“{t.quote}”</blockquote>
           <figcaption className="mt-8">
             <span aria-hidden className="mx-auto mb-4 block h-px w-12 bg-gold-gradient" />
             <p className="font-semibold text-gold-200">{t.name}</p>
@@ -41,7 +41,7 @@ export function Testimonials({ dict }: { dict: Dictionary["testimonials"] }) {
         </figure>
 
         <div className="mt-10 flex items-center justify-center gap-4">
-          <button onClick={() => go(-1)} aria-label={dict.prev} className="rounded-md border border-gold-400/30 p-2 text-gold-300 transition hover:bg-gold-400 hover:text-ink-950">
+          <button onClick={() => go(-1)} aria-label={dict.prev} className="rounded-md bg-white/5 p-2 text-gold-300 ring-1 ring-white/10 transition ring-inset hover:bg-gold-400 hover:text-ink-950">
             <ChevronLeft className="size-5" />
           </button>
           <div className="flex gap-2">
@@ -55,7 +55,7 @@ export function Testimonials({ dict }: { dict: Dictionary["testimonials"] }) {
               />
             ))}
           </div>
-          <button onClick={() => go(1)} aria-label={dict.next} className="rounded-md border border-gold-400/30 p-2 text-gold-300 transition hover:bg-gold-400 hover:text-ink-950">
+          <button onClick={() => go(1)} aria-label={dict.next} className="rounded-md bg-white/5 p-2 text-gold-300 ring-1 ring-white/10 transition ring-inset hover:bg-gold-400 hover:text-ink-950">
             <ChevronRight className="size-5" />
           </button>
         </div>

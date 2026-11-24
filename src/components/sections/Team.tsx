@@ -12,7 +12,7 @@ const roleIcons = { architect: Layers, frontend: MonitorSmartphone, design: PenT
 
 export function Team({ dict, lang }: { dict: Dictionary["team"]; lang: Locale }) {
   return (
-    <section id="team" className="mx-auto max-w-5xl px-4 py-24">
+    <section id="team" className="mx-auto max-w-5xl px-4 py-28">
       <SectionHeading eyebrow={dict.eyebrow} title={dict.heading} intro={dict.intro} />
       <ul className="mt-14 grid gap-6 md:grid-cols-2">
         {team.map((member, i) => {
@@ -27,8 +27,9 @@ export function Team({ dict, lang }: { dict: Dictionary["team"]; lang: Locale })
           return (
             <li key={member.name.en}>
               <Reveal delay={i * 120} className="h-full">
-                <article className="group relative h-full overflow-hidden rounded-lg border border-gold-400/15 bg-ink-900 p-6 transition sm:p-8 duration-300 hover:-translate-y-1 hover:border-gold-400/50 hover:shadow-2xl hover:shadow-gold-500/10">
-                  <div aria-hidden className="pointer-events-none absolute -top-20 -right-20 size-56 rounded-full bg-gold-400/5 blur-3xl transition duration-500 group-hover:bg-gold-400/15" />
+                <article className="card group relative h-full overflow-hidden rounded-lg p-6 transition duration-500 hover:-translate-y-1 hover:border-gold-400/30 sm:p-8">
+                  <div aria-hidden className="pointer-events-none absolute -top-24 -right-24 size-64 rounded-full bg-gold-400/0 blur-3xl transition duration-700 group-hover:bg-gold-400/10" />
+                  <span aria-hidden className="absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-gold-300/60 to-transparent opacity-0 transition duration-500 group-hover:opacity-100" />
 
                   <div className="relative flex flex-col items-start gap-4 min-[400px]:flex-row min-[400px]:items-center min-[400px]:gap-5">
                     <div className="relative size-20 shrink-0 rounded-full sm:size-24 bg-gold-gradient p-[2px]">
@@ -46,18 +47,18 @@ export function Team({ dict, lang }: { dict: Dictionary["team"]; lang: Locale })
                     </div>
                   </div>
 
-                  <p className="relative mt-6 leading-relaxed text-ink-300">{member.bio[lang]}</p>
+                  <p className="relative mt-6 leading-relaxed text-ink-400">{member.bio[lang]}</p>
 
                   <ul className="relative mt-6 flex flex-wrap gap-2">
                     {member.skills.map((skill) => (
-                      <li key={skill.en} className="rounded-sm border border-gold-400/20 bg-ink-950/60 px-3 py-1 text-xs text-ink-300 transition group-hover:border-gold-400/35">
+                      <li key={skill.en} className="rounded-sm bg-white/5 px-2.5 py-1 text-xs text-ink-300 ring-1 ring-white/10 ring-inset">
                         {skill[lang]}
                       </li>
                     ))}
                   </ul>
 
                   {socials.length > 0 && (
-                    <div className="relative mt-6 flex gap-2 border-t border-gold-400/15 pt-6">
+                    <div className="relative mt-6 flex gap-2 border-t border-white/10 pt-6">
                       {socials.map(({ href, icon: SIcon, label }) => (
                         <a
                           key={label}
@@ -65,7 +66,7 @@ export function Team({ dict, lang }: { dict: Dictionary["team"]; lang: Locale })
                           target={label === "Email" ? undefined : "_blank"}
                           rel="noopener noreferrer"
                           aria-label={`${name} – ${label}`}
-                          className="flex size-9 items-center justify-center rounded-md border border-gold-400/25 text-ink-300 transition hover:border-gold-400 hover:bg-gold-400 hover:text-ink-950"
+                          className="flex size-9 items-center justify-center rounded-md bg-white/5 text-ink-300 ring-1 ring-white/10 transition ring-inset hover:bg-gold-400 hover:text-ink-950 hover:ring-gold-400"
                         >
                           <SIcon className="size-4" aria-hidden />
                         </a>

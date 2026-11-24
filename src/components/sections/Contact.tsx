@@ -61,7 +61,7 @@ export function Contact({ dict, services, whatsapp }: { dict: Dictionary["contac
   }
 
   const input =
-    "w-full rounded-md border border-gold-400/20 bg-ink-950 px-4 py-3 text-ink-50 placeholder:text-ink-400 transition outline-none focus:border-gold-400 focus:ring-2 focus:ring-gold-400/20";
+    "w-full rounded-md border border-white/10 bg-ink-950/80 px-4 py-3 text-ink-50 placeholder:text-ink-400 transition outline-none hover:border-white/20 focus:border-gold-400/70 focus:ring-4 focus:ring-gold-400/10";
   const err = (k: Field) =>
     errors[k] && (
       <p id={`${k}-error`} className="mt-1.5 text-xs text-red-400">
@@ -70,11 +70,11 @@ export function Contact({ dict, services, whatsapp }: { dict: Dictionary["contac
     );
 
   return (
-    <section id="contact" className="mx-auto max-w-6xl px-4 py-24">
-      <div className="grid overflow-hidden rounded-lg border border-gold-400/20 bg-ink-900 lg:grid-cols-[1fr_1.2fr]">
+    <section id="contact" className="mx-auto max-w-6xl px-4 py-28">
+      <div className="border-gold grid overflow-hidden rounded-lg shadow-2xl shadow-black/60 lg:grid-cols-[1fr_1.2fr]">
         <div className="relative min-h-[26rem]">
           <Image src={media.contactOffice} alt={dict.imageAlt} fill placeholder="blur" sizes="(min-width: 1024px) 30rem, 100vw" className="object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/60 to-ink-950/20" />
+          <div className="absolute inset-0 bg-gradient-to-t from-ink-950 from-10% via-ink-950/85 via-50% to-ink-950/30" />
           <div className="absolute inset-x-0 bottom-0 p-8 sm:p-10">
             <SectionHeading eyebrow={dict.eyebrow} title={dict.heading} intro={dict.subtitle} align="left" />
             <p className="mt-6 text-sm text-ink-300">{whatsapp.contactPrompt}</p>
@@ -99,21 +99,21 @@ export function Contact({ dict, services, whatsapp }: { dict: Dictionary["contac
           ) : (
             <form noValidate onSubmit={onSubmit} className="grid gap-5 sm:grid-cols-2">
               <div>
-                <label htmlFor="name" className="mb-2 block text-sm text-ink-300">{f.name}</label>
+                <label htmlFor="name" className="mb-2 block text-[0.7rem] font-semibold tracking-[0.2em] text-ink-400 uppercase">{f.name}</label>
                 <input id="name" name="name" autoComplete="name" className={input} aria-invalid={!!errors.name} aria-describedby={errors.name ? "name-error" : undefined} />
                 {err("name")}
               </div>
               <div>
-                <label htmlFor="email" className="mb-2 block text-sm text-ink-300">{f.email}</label>
+                <label htmlFor="email" className="mb-2 block text-[0.7rem] font-semibold tracking-[0.2em] text-ink-400 uppercase">{f.email}</label>
                 <input id="email" name="email" type="email" autoComplete="email" className={input} aria-invalid={!!errors.email} aria-describedby={errors.email ? "email-error" : undefined} />
                 {err("email")}
               </div>
               <div>
-                <label htmlFor="phone" className="mb-2 block text-sm text-ink-300">{f.phone}</label>
+                <label htmlFor="phone" className="mb-2 block text-[0.7rem] font-semibold tracking-[0.2em] text-ink-400 uppercase">{f.phone}</label>
                 <input id="phone" name="phone" type="tel" autoComplete="tel" className={input} />
               </div>
               <div>
-                <label htmlFor="service" className="mb-2 block text-sm text-ink-300">{f.service}</label>
+                <label htmlFor="service" className="mb-2 block text-[0.7rem] font-semibold tracking-[0.2em] text-ink-400 uppercase">{f.service}</label>
                 <select ref={serviceRef} id="service" name="service" defaultValue="" className={input} aria-invalid={!!errors.service} aria-describedby={errors.service ? "service-error" : undefined}>
                   <option value="" disabled>{f.servicePlaceholder}</option>
                   {services.map((s) => (
@@ -123,7 +123,7 @@ export function Contact({ dict, services, whatsapp }: { dict: Dictionary["contac
                 {err("service")}
               </div>
               <div className="sm:col-span-2">
-                <label htmlFor="message" className="mb-2 block text-sm text-ink-300">{f.message}</label>
+                <label htmlFor="message" className="mb-2 block text-[0.7rem] font-semibold tracking-[0.2em] text-ink-400 uppercase">{f.message}</label>
                 <textarea ref={messageRef} id="message" name="message" rows={5} className={`${input} resize-none`} aria-invalid={!!errors.message} aria-describedby={errors.message ? "message-error" : undefined} />
                 {err("message")}
               </div>

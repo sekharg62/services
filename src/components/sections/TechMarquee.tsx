@@ -31,21 +31,19 @@ const tech: { name: string; icon: IconType; color: string }[] = [
 
 export function TechMarquee({ heading }: { heading: string }) {
   return (
-    <section aria-label={heading} className="border-y border-gold-400/15 bg-ink-900/60 py-8">
-      <p className="text-center text-xs tracking-[0.3em] text-ink-400 uppercase">{heading}</p>
-      <div className="group mt-6 flex overflow-hidden [mask-image:linear-gradient(90deg,transparent,black_12%,black_88%,transparent)]">
-        <ul className="flex shrink-0 animate-marquee gap-5 pr-5 group-hover:[animation-play-state:paused] motion-reduce:animate-none">
+    <section aria-label={heading} className="border-y border-white/10 py-10">
+      <p className="text-center text-[0.7rem] tracking-[0.3em] text-ink-400 uppercase">{heading}</p>
+      <div className="group mt-8 flex overflow-hidden [mask-image:linear-gradient(90deg,transparent,black_15%,black_85%,transparent)]">
+        <ul className="flex shrink-0 animate-marquee gap-12 pr-12 group-hover:[animation-play-state:paused] motion-reduce:animate-none">
           {[...tech, ...tech].map(({ name, icon: Icon, color }, i) => (
             <li
               key={i}
               aria-hidden={i >= tech.length}
               style={{ "--brand": color } as React.CSSProperties}
-              className="group/item flex items-center gap-3 rounded-md border border-gold-400/15 bg-ink-950/60 py-2.5 pr-5 pl-3 whitespace-nowrap transition hover:border-[var(--brand)]/50"
+              className="group/item flex items-center gap-3 whitespace-nowrap"
             >
-              <span className="flex size-9 items-center justify-center rounded-sm bg-ink-800 text-gold-300 transition group-hover/item:text-[var(--brand)]">
-                <Icon className="size-5" aria-hidden />
-              </span>
-              <span className="text-sm font-medium text-ink-300 transition group-hover/item:text-ink-50">{name}</span>
+              <Icon className="size-6 text-ink-400 transition duration-300 group-hover/item:text-[var(--brand)]" aria-hidden />
+              <span className="font-display text-lg font-medium text-ink-400 transition duration-300 group-hover/item:text-ink-50">{name}</span>
             </li>
           ))}
         </ul>

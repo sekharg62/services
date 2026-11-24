@@ -3,26 +3,20 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import type { Dictionary } from "@/lib/dictionaries";
 
 export function Process({ dict }: { dict: Dictionary["process"] }) {
-  const last = dict.steps.length - 1;
   return (
-    <section id="process" className="mx-auto max-w-6xl px-4 py-24">
+    <section id="process" className="mx-auto max-w-6xl px-4 py-28">
       <SectionHeading eyebrow={dict.eyebrow} title={dict.heading} />
-      <ol className="mt-16 grid gap-6 md:grid-cols-4">
+      <ol className="mt-16 grid gap-px overflow-hidden rounded-lg border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-4">
         {dict.steps.map((step, i) => (
-          <li key={step.title} className="relative">
-            {/* connector: from this circle's right edge to the next circle's left edge (circle = 3.5rem, card padding = 1.5rem, grid gap = 1.5rem) */}
-            {i < last && (
-              <span
-                aria-hidden
-                className="absolute top-[calc(1.5rem+1.75rem)] left-[calc(50%+1.75rem+0.5rem)] hidden h-px w-[calc(100%-3.5rem+1.5rem-1rem)] bg-gradient-to-r from-gold-400/60 via-gold-400/30 to-gold-400/60 md:block"
-              />
-            )}
+          <li key={step.title} className="bg-ink-950">
             <Reveal delay={i * 120} className="h-full">
-              <div className="group h-full rounded-lg border border-transparent p-6 text-center transition hover:border-gold-400/30 hover:bg-ink-900">
-                <span className="relative mx-auto flex size-14 items-center justify-center rounded-full border border-gold-400/50 bg-ink-950 font-display text-lg font-medium text-gold-300 tabular-nums transition group-hover:bg-gold-400 group-hover:text-ink-950">
+              <div className="group relative h-full overflow-hidden p-7 transition duration-500 hover:bg-ink-900">
+                {/* top progress line that fills on hover */}
+                <span aria-hidden className="absolute inset-x-0 top-0 h-px origin-left scale-x-0 bg-gold-gradient transition duration-500 group-hover:scale-x-100" />
+                <span className="text-gold-gradient block font-display text-6xl leading-none font-semibold tabular-nums opacity-30 transition duration-500 group-hover:opacity-100">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <h3 className="mt-6 text-xl font-semibold text-ink-50">{step.title}</h3>
+                <h3 className="mt-10 text-xl font-semibold text-ink-50">{step.title}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-ink-400">{step.description}</p>
               </div>
             </Reveal>

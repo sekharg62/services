@@ -33,7 +33,7 @@ export function Hero({ dict }: { dict: Dictionary["hero"] }) {
           </a>
           <a
             href="#work"
-            className="rounded-md border border-gold-400/40 bg-ink-950/40 px-7 py-3.5 text-sm font-semibold tracking-[0.15em] text-gold-200 uppercase backdrop-blur-sm transition hover:border-gold-300 hover:bg-gold-400/10"
+            className="glass rounded-md px-7 py-3.5 text-sm font-semibold tracking-[0.15em] text-gold-200 uppercase ring-1 ring-white/15 transition ring-inset hover:ring-gold-400/50"
           >
             {dict.secondary}
           </a>

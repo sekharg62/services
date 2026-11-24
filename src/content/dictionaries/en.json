@@ -197,7 +197,9 @@
   },
   "footer": {
     "tagline": "Web, app and business development.",
-    "rights": "All rights reserved."
+    "rights": "All rights reserved.",
+    "ctaHeading": "Have a project in mind?",
+    "ctaButton": "Start a conversation"
   },
   "whatsapp": {
     "label": "Chat on WhatsApp",
